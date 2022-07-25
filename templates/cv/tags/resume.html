@@ -1,0 +1,117 @@
+
+{% extends  "cv/Base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-row-padding">
+
+<!-- Left Column -->
+<div class="w3-third">
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="{% static "yak.jpg" %}" style="width:100%" alt="Avatar">
+        </div>
+        <div class="w3-container">
+            <h2>Ben Goldweber 1</h2>
+            <hr>
+            <a href="/static/files/Ben%20Goldweber%20-%20Resume.pdf" download><p><i class="fa fa-download fa-fw w3-margin-right w3-large w3-text-teal"></i>Resume Download</p></a>
+             <hr>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Engineer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Kensington, MD</p>
+            <a href="mailto:bensgoldweber@gmail.com"><p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>bensgoldweber@gmail.com</p></a>
+            <a href="https://github.com/bengoldweber"> <p><i class="fa fa-github fa-fw w3-margin-right w3-large w3-text-teal"></i>https://github.com/bengoldweber</p></a>
+            <a href="tel:+2027099257"><p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>202-709-9257</p></a>
+
+
+          <hr>
+            <p class="w3-large"><b><i class="fa fa-male fa-fw w3-margin-right w3-text-teal"></i>About</b></p>
+            <p>Dedicated, creative, and resourceful developer adept at bringing together stakeholders with conflicting objectives to form a cohesive team and work towards a common goal. Passionate about bringing Data Science, Engineering, and Machine Learning together for intelligent decision making. </p>
+            <hr>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+    <div class="w3-twothird">
+        <div class="w3-container w3-card w3-white w3-margin-bottom" id="section_work">
+
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+
+        {% for WorkExp in WorkExp_Objs %}
+            <div class="w3-container">
+                <h5 class="w3-opacity"><b>{{ WorkExp.job_title }}</b></h5>
+                <h6 class="w3-text-teal">
+                    <i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ WorkExp.from_date }} -
+                    <span class="w3-tag w3-teal w3-round"> {{ WorkExp.to_date }} </span>
+                </h6>
+                <p>{{ WorkExp.job_desc }}</p>
+                <p>Responsibilities:</p>
+                    <ul>
+                        {% for Resp in WorkExp.jobresponsibiltie_set.all %}
+                           <li><u>{{ Resp.header }}:</u>
+                           {{ Resp.description }}
+                           </li>
+                      {% endfor %}
+                    </ul>
+            </div>
+
+        {% endfor %}
+
+
+        </div>
+        <div class="w3-container w3-card w3-white w3-margin-bottom" id="section_projects">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Machine Learning and Data Science Projects</h2>
+            {% for Project in Project_Objs %}
+
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>{{ Project.header }}</b></h5>
+                <ul>
+                    <li>
+                        {{ Project.description }}
+                    </li>
+                </ul>
+              <hr>
+            </div>
+
+        {% endfor %}
+        </div>
+        <div class="w3-container w3-card w3-white w3-margin-bottom" id="section_awards">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Awards</h2>
+            <div class="w3-container">
+
+                <ul>
+                    {% for Award in Award_Objs %}
+
+                    <li>
+                        {{ Award.description  }}
+                    </li>
+
+                    {%  endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="w3-container w3-card w3-white w3-margin-bottom" id="section_education">
+            <h2 class="w3-text-grey w3-padding-16">
+                <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                Education
+            </h2>
+            {% for Education in Education_Objs %}
+                <div class="w3-container">
+                  <h5 class="w3-opacity"><b>{{ Education.title}}</b></h5>
+                  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ Education.from_date}}</h6>
+                  <p>{{ Education.description}}</p>
+                  <hr>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+  <!-- End Grid -->
+  </div>
+</div>
+
+{% endblock %}
+
