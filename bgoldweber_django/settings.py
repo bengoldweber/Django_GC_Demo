@@ -33,7 +33,7 @@ MEDIA_URL = '/images/'
 SECRET_KEY = config("SECRET_KEY") # Key stored seperately
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Change this to your production URL for deployment
 ALLOWED_HOSTS = ['*']
