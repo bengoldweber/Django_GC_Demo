@@ -18,9 +18,10 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static') ]
+# STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static') ]
+
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -33,7 +34,7 @@ MEDIA_URL = '/images/'
 SECRET_KEY = config("SECRET_KEY") # Key stored seperately
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Change this to your production URL for deployment
 ALLOWED_HOSTS = ['*']
