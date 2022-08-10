@@ -1,0 +1,64 @@
+$color-base-red: 0;
+$color-base-green: 0;
+$color-base-blue: 0;
+
+$color-base: rgb(224, 187, 228);
+$color-compliment: complement($color-base);
+$color-invert: invert($color-base, 70);
+$color-greyscale: grayscale($color-base);
+$color-base-mix: mix($color-base,$color-compliment, 70);
+$color-base-hueshift: adjust-hue($color-base, 50);
+$color-base-lighten: lighten($color-base, 20);
+$color-base-darken: darken($color-base, 20);
+$color-base-desaturate: desaturate($color-base, 30);
+$color-base-rgba: rgba($color-base, 50);
+$color-base-more-red: change-color($color-base, $red:255);
+
+.color-base {
+  background-color: $color-base;
+}
+
+.color-base-invert {
+  background-color: $color-invert;
+}
+
+.color-base-compliment {
+ background-color: $color-compliment;
+}
+
+.color-base-greyscale {
+  background-color: $color-greyscale;
+}
+
+.color-base-inversion-mix{
+  background-color: mix($color-base,$color-compliment, 60)
+}
+
+.color-base-hueshift {
+  background-color: $color-base-hueshift;
+}
+
+.color-base-lighten {
+  background-color: $color-base-lighten;
+}
+
+.color-base-darken {
+  background-color: $color-base-darken;
+}
+
+.color-base-desaturate {
+  background-color: $color-base-desaturate;
+}
+
+.color-base-rgba {
+  background-color: $color-base-rgba;
+}
+
+.color-base-more-red {
+  background-color: $color-base-more-red;
+}
+
+.style-card {
+  height: 50px;
+  width: 250px
+}

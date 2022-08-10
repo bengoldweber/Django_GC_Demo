@@ -11,5 +11,6 @@ urlpatterns = [
     # path('playground/', include('playground.urls')),
     # path('playground/', include('playground.urls')),
     path('admin/', admin.site.urls),
-    path('', include('cv.urls'))
+    path('', include('cv.urls')),
+    path('blog/', include('blog.urls'))
 ]
