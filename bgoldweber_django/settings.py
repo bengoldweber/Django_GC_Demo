@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'django.contrib.auth.context_processors',
 	"graphene_django",
+	'corsheaders',
 	'ckeditor',
 	'cv',
 	'blog'
@@ -63,7 +64,11 @@ GRAPHENE = {
 	"SCHEMA": "blog.schema.schema"
 }
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = ("http://localhost:8080",)
+
 MIDDLEWARE = [
+	"corsheaders.middleware.CorsMiddleware",
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -73,7 +78,7 @@ MIDDLEWARE = [
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.middleware.clickjacking.XFrameOptionsMiddleware'
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
 
