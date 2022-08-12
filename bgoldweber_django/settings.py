@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from decouple import config
 
+#graphene workaround to get it to work
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +28,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static') ]
 
 
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/images/'
 
@@ -31,7 +35,7 @@ MEDIA_URL = '/images/'
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # Secret key is st
-SECRET_KEY = config("SECRET_KEY") # Key stored seperately
+SECRET_KEY = config("SECRET_KEY")  # Key stored seperately
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -49,10 +53,15 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'django.contrib.auth.context_processors',
+	"graphene_django",
 	'ckeditor',
 	'cv',
 	'blog'
 ]
+
+GRAPHENE = {
+	"SCHEMA": "blog.schema.schema"
+}
 
 MIDDLEWARE = [
 	'django.middleware.common.CommonMiddleware',
