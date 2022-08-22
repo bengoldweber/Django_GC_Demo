@@ -15,13 +15,16 @@ class TagType(DjangoObjectType):
 	class Meta:
 		model = models.Tag
 
+
 class PostTag(DjangoObjectType):
 	class Meta:
 		model = models.PostTag
 
+
 class Category(DjangoObjectType):
 	class Meta:
 		model = models.Category
+
 
 class PostCategory(DjangoObjectType):
 	class Meta:
@@ -42,7 +45,7 @@ class Query(graphene.ObjectType):
 	def resolve_get_postcategory(root, info):
 		return (
 			models.PostCategory.objects.prefetch_related("AsscPost").all()
-			#prefetch_related("AsscCategory_id")
+			# prefetch_related("AsscCategory_id")
 			#
 			# .all()
 		)

@@ -16,4 +16,5 @@ COPY . .
 EXPOSE 8080
 
 # Run app.py when the container launches
-ENTRYPOINT ["python", "manage.py", "runserver", "--noreload"]
+# RUN ls
+ENTRYPOINT ["python", "backend/manage.py", "runserver", "--noreload"]

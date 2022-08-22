@@ -65,8 +65,9 @@ GRAPHENE = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ("http://localhost:8080",)
-
+cor_whitelist = ("http://" + str(config('DEFAULT_ADRR')) +":8080")
+CORS_ORIGIN_WHITELIST = (cor_whitelist,)
+# "localhost"
 MIDDLEWARE = [
 	"corsheaders.middleware.CorsMiddleware",
 	'django.middleware.common.CommonMiddleware',
